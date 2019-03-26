@@ -31,7 +31,24 @@ module test(
 		
 	initial
 		begin
+<<<<<<< HEAD
+			{reset,xs,clk,fin}=0;
+			
+			#5 reset=1;
+			#5 reset=0;
+			
+			xs=1;
+			@(posedge clk);//esperamos un flanco de reloj
+			xs=0;
+			
+			repeat(3) @(posedge clk)
+			
+=======
 			//Cree el programa de simulación
+			
+
+
+>>>>>>> 3a01a05009be5fe6fa84dfac7dc065c65ac3a41d
 			$finish;
 		end
 
