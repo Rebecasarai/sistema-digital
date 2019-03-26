@@ -138,3 +138,13 @@ module alu #(parameter n=8){
 
 endmodule
 
+module SD #(parameter n=8)(
+	input xs, clk, reset, clk, Ra, Rb, Rc, Rac, Wa, Wb, Wc, Wac, Wt, S, R 
+	); 
+
+	UnidadControl unidadControl(.clk(clk), .reset(reset), .xs(xs));
+	UnidadDatos #(n) unidadDatos( .clk(clk), .Ra(Ra), .Rb(Rb), .Rc(Rc), .Rac(Rac), .Wa(Wa), .Wb(Wb), .Wc(Wc), .Wac(Wac), .Wt(Wt), .S(S), .R(R) ); //Complete la lista de puertos
+
+endmodule
+
+
