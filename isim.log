@@ -1,0 +1,20 @@
+ISim log file
+Running: /home/alberto/Documentos/ownCloud/EDC/Aula/tema2/Ejercicios/EjericiciosCasa/SistemaDigital19/SistemaDigital/test_isim_beh.exe -gui -tclbatch isim.cmd -wdb /home/alberto/Documentos/ownCloud/EDC/Aula/tema2/Ejercicios/EjericiciosCasa/SistemaDigital19/SistemaDigital/test_isim_beh.wdb 
+ISim M.81d (signature 0x9ca8bed6)
+WARNING: A WEBPACK license was found.
+WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+Stopped at time : 290 ns : File "/home/alberto/Documentos/ownCloud/EDC/Aula/tema2/Ejercicios/EjericiciosCasa/SistemaDigital19/SistemaDigital/test.v" Line 42
+# restart
+# run all
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+Stopped at time : 290 ns : File "/home/alberto/Documentos/ownCloud/EDC/Aula/tema2/Ejercicios/EjericiciosCasa/SistemaDigital19/SistemaDigital/test.v" Line 42
+# exit 0

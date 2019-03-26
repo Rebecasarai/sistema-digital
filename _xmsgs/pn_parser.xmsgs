@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated   -->
+<!--     by the Xilinx ISE software.  Any direct editing or        -->
+<!--     changes made to this file may result in unpredictable     -->
+<!--     behavior or data corruption.  It is strongly advised that -->
+<!--     users do not edit the contents of this file.              -->
+<!--                                                               -->
+<!-- Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.    -->
+
+<messages>
+<msg type="info" file="ProjectMgmt" num="1677" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;/home/alberto/Documentos/ownCloud/EDC/Aula/tema2/Ejercicios/EjericiciosCasa/SistemaDigital19/SistemaDigitalAlumno/SD.v\&quot; into library work</arg>
+</msg>
+
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/alberto/Documentos/ownCloud/EDC/Aula/tema2/Ejercicios/EjericiciosCasa/SistemaDigital19/SistemaDigitalAlumno/SD.v</arg>&quot; Line <arg fmt="%d" index="2">25</arg>. <arg fmt="%s" index="3">Syntax error near &quot;.&quot;.</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1677" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;/home/alberto/Documentos/ownCloud/EDC/Aula/tema2/Ejercicios/EjericiciosCasa/SistemaDigital19/SistemaDigitalAlumno/SistemaDigital.v\&quot; into library work</arg>
+</msg>
+
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/alberto/Documentos/ownCloud/EDC/Aula/tema2/Ejercicios/EjericiciosCasa/SistemaDigital19/SistemaDigitalAlumno/SistemaDigital.v</arg>&quot; Line <arg fmt="%d" index="2">22</arg>. <arg fmt="%s" index="3">Syntax error near &quot;.&quot;.</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1677" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;/home/alberto/Documentos/ownCloud/EDC/Aula/tema2/Ejercicios/EjericiciosCasa/SistemaDigital19/SistemaDigitalAlumno/UnidadControl.v\&quot; into library work</arg>
+</msg>
+
+<msg type="error" file="ProjectMgmt" num="806" >&quot;<arg fmt="%s" index="1">/home/alberto/Documentos/ownCloud/EDC/Aula/tema2/Ejercicios/EjericiciosCasa/SistemaDigital19/SistemaDigitalAlumno/UnidadControl.v</arg>&quot; Line <arg fmt="%d" index="2">23</arg>. <arg fmt="%s" index="3">Syntax error near &quot;.&quot;.</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1677" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;/home/alberto/Documentos/ownCloud/EDC/Aula/tema2/Ejercicios/EjericiciosCasa/SistemaDigital19/SistemaDigitalAlumno/test.v\&quot; into library work</arg>
+</msg>
+
+</messages>
+
