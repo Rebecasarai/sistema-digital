@@ -33,7 +33,7 @@ module UnidadControl(
 					S7 =4'd7,
 					S8 =4'd8,
 					S9 =4'd9,
-					S10=4'd10
+					S10=4'd10, 
 					S11=4'd11;
 					  //Complete la lista de estados
 					
@@ -56,54 +56,53 @@ module UnidadControl(
 						next_state=S0;
 				S1:
 				begin
-					Ra,Wt=1;		//T<-A
+					{Ra, Wt}=1;		//T<-A
 					next_state=S2;
 				end
 				S2:
 				begin
-					Ra,S,Wac=1;		//AC<-T+A
+					{Ra,S,Wac}=1;		//AC<-T+A
 					next_state=S3;
 				end
 				S3:
 				begin
-					Wc,Rac=1;		//C<-AC
-					next_state=S4
-				
+					{Wc,Rac}=1;		//C<-AC
+					next_state=S4;
 				end
 				S4:
 				begin 
-					Rb,Wt=1;		//T<-B
+					{Rb,Wt}=1;		//T<-B
 					next_state=S5;
 				end
 				S5:
 				begin
-					Wac,Rb,S=1;		//AC<-T+B
+					{Wac,Rb,S}=1;		//AC<-T+B
 					next_state=S6;
 				end
 				S6:
 				begin 
-					Rac,Wa=1;		//A<-AC
+					{Rac,Wa}=1;		//A<-AC
 					next_state=S7;
 					
 				end
 				S7:
 				begin
-					Wt,Rc=1;		//B<-C
+					{Wt,Rc}=1;		//B<-C
 					next_state=S8;
 				end
 				S8:
 				begin
-					Wt,Rc=1;		//T<-C
+					{Wt,Rc}=1;		//T<-C
 					next_state=S9;
 				end
 				S9:
 				begin
-					Wac,Ra,S=1;		//AC<-T+A
+					{Wac,Ra,S}=1;		//AC<-T+A
 					next_state=S10;
 				end
 				S10:
 				begin
-					Rac,Wc=1;		//C<-AC
+					{Rac,Wc}=1;		//C<-AC
 					next_state=S11;
 				end
 				S11:

@@ -24,15 +24,19 @@ module test(
 	reg reset,xs,clk;
 	wire fin;
 	
-	SD uut(.reset(reset),.clk(clk),.xs(xs),.fin(fin));
+	SD uut (.reset(reset),.clk(clk),.xs(xs));
 	
 	always
-		#10 clk = ~clk;
+		#50 clk = ~clk;
 		
 	initial
 		begin
-<<<<<<< HEAD
-			{reset,xs,clk,fin}=0;
+		
+		// Generación de formas de onda
+		$dumpfile("test.vcd");
+		$dumpvars(0, test);
+		
+			{reset,xs,clk}=0;
 			
 			#5 reset=1;
 			#5 reset=0;
@@ -43,12 +47,7 @@ module test(
 			
 			repeat(3) @(posedge clk)
 			
-=======
-			//Cree el programa de simulación
-			
 
-
->>>>>>> 3a01a05009be5fe6fa84dfac7dc065c65ac3a41d
 			$finish;
 		end
 
