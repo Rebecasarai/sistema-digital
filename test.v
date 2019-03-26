@@ -32,9 +32,6 @@ module test(
 	initial
 		begin
 			//Cree el programa de simulación
-			
-
-
 			$finish;
 		end
 
