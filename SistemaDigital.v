@@ -22,18 +22,19 @@ module UnidadDatos #(parameter n=8)(
 	input clk, Ra, Rb, Rc, Rac, Wa, Wb, Wc, Wac, Wt, S, R ); //Complete la lista de puertos
 
 	wire [n-1:0] bus1, bus2, bus3;  //Declare los buses de interconexión
-	registro1 #(n,10) A(.clk(clk), .W(Wa), .R(Ra), .bus(bus1)); 			//Complete la lista de puertos usando conexión nombrada
-	registro1 #(n,10) B(.clk(clk), .W(Wb), .R(Rb), .bus(bus1));
-	registro1 #(n,10) C(.clk(clk), .W(Wc), .R(Rc), .bus(bus1));
-	registroAC #(n,10) AC(.clk(clk), .W(Wac), .R(Rac), .busin(bus3), .busout(bus1));
-	registroT #(n,10) T(.clk(clk), .W(Wac), .busin(bus1), .busout(bus2));
+	registro1 #(n,2) A(.clk(clk), .W(Wa), .R(Ra), .bus(bus1)); 			//Complete la lista de puertos usando conexión nombrada
+	registro1 #(n,4) B(.clk(clk), .W(Wb), .R(Rb), .bus(bus1));
+	registro1 #(n,0) C(.clk(clk), .W(Wc), .R(Rc), .bus(bus1));
+	registroT #(n,0) T(.clk(clk), .W(Wt), .busin(bus1), .busout(bus2));
+	registroAC #(n,0) AC(.clk(clk), .W(Wac), .R(Rac), .busin(bus3), .busout(bus1));
+	alu ALU(.s(S), .r(R), .a(bus2), .b(bus1), .out(bus3));
 
 	//Complete la unidad de datos
 
 endmodule
 
 
-module registro1 #(parameter n=8,valor = 0)(
+module registro1 #(parameter n=8,valor = 10)(
 	input W,R,clk,  //complete la lista de puertos
 	inout [n-1:0] bus
 );
@@ -58,10 +59,8 @@ module registro1 #(parameter n=8,valor = 0)(
 	assign bus = R ? q: 'bz; //Complete la lectura condicional
 
 endmodule
-
-//Complete la lista de módulos que sean necesarios para
-//la unidad de datos.
-
+// Complete la lista de módulos que sean necesarios para
+// la unidad de datos.
 
 
 module registroAC #(parameter n=8,valor = 0)(
@@ -88,7 +87,7 @@ module registroAC #(parameter n=8,valor = 0)(
 	initial
 		q<=valor;
 	
-	assign busout = R ? q: 'bz; //Complete la lectura condicional
+	assign busout = R ? q : 'bz; //Complete la lectura condicional
 
 endmodule
 
@@ -117,19 +116,6 @@ module registroT #(parameter n=8,valor = 0)(
 		q<=valor;
 	
 	assign busout = q; 
-
-endmodule
-
-
-
-module SD #(parameter n=8)(
-	input xs, clk, reset
-	); 
-
-	wire Ra, Rb, Rc, Rac, Wa, Wb, Wc, Wac, Wt, S, R;
-
-	UnidadControl unidadControl(.clk(clk), .reset(reset), .xs(xs));
-	UnidadDatos unidadDatos(.clk(clk), .Ra(Ra), .Rb(Rb), .Rc(Rc), .Rac(Rac), .Wa(Wa), .Wb(Wb), .Wc(Wc), .Wac(Wac), .Wt(Wt), .S(S), .R(R)); //Complete la lista de puertos
 
 endmodule
 
@@ -173,7 +159,7 @@ module UnidadControl(
 					S11=4'd11;
 					  //Complete la lista de estados
 					
-	reg [2:0] current_state,next_state; //Complete el número de bits
+	reg [3:0] current_state,next_state; //Complete el número de bits
 
 	always @(posedge clk,posedge reset)
 		if(reset)
@@ -192,64 +178,114 @@ module UnidadControl(
 						next_state=S0;
 				S1:
 				begin
-					{Ra, Wt}=1;		//T<-A
-					next_state=S2;
+					begin
+						Ra=1;
+						Wt=1;		//T<-A
+						next_state=S2;
+					end
 				end
 				S2:
 				begin
-					{Ra,S,Wac}=1;		//AC<-T+A
-					next_state=S3;
+					begin
+						Ra = 1;	
+						S =1;
+						Wac = 1;	//AC<-T+A
+						next_state=S3;
+					end
 				end
 				S3:
 				begin
-					{Wc,Rac}=1;		//C<-AC
-					next_state=S4;
+					begin
+						Wc=1;
+						Rac=1;		//C<-AC
+						next_state=S4;
+					end 
 				end
 				S4:
 				begin 
-					{Rb,Wt}=1;		//T<-B
-					next_state=S5;
+					begin
+						Rb=1;
+						Wt=1;		//T<-B
+						next_state=S5;
+					end 
 				end
 				S5:
 				begin
-					{Wac,Rb,S}=1;		//AC<-T+B
-					next_state=S6;
+					begin
+						Wac=1;
+						Rb=1;
+						S=1;		//AC<-T+B
+						next_state=S6;
+					end
 				end
 				S6:
 				begin 
-					{Rac,Wa}=1;		//A<-AC
-					next_state=S7;
+					begin
+						Rac=1;
+						Wa=1;		//A<-AC
+						next_state=S7;
+					end 
 					
 				end
 				S7:
 				begin
-					{Wt,Rc}=1;		//B<-C
-					next_state=S8;
+					begin
+						Wt=1;
+						Rc=1;		//B<-C
+						next_state=S8;
+					end
 				end
 				S8:
 				begin
-					{Wt,Rc}=1;		//T<-C
-					next_state=S9;
+					begin
+						Wt=1;
+						Rc=1;		//T<-C
+						next_state=S9;
+					end
 				end
 				S9:
 				begin
-					{Wac,Ra,S}=1;		//AC<-T+A
-					next_state=S10;
+					begin
+						Wac=1;
+						Ra=1;
+						S=1;		//AC<-T+A
+						next_state=S10;
+					end
 				end
 				S10:
 				begin
-					{Rac,Wc}=1;		//C<-AC
-					next_state=S11;
+					begin
+						Rac=1;
+						Wc=1;		//C<-AC
+						next_state=S11;
+					end
 				end
 				S11:
 				begin 
-					fin=1;
-					next_state=S0; 			//Al activarse fin, volveremos al estado inicial
+					begin
+						fin=1;
+						next_state=S0; 			//Al activarse fin, volveremos al estado inicial
+					end
 				end
 			//Complete los estados de acuerdo a la carta ASM
 			endcase
 		
 		end
 
+
+endmodule
+
+
+
+module SD(
+	input clk, reset,xs,
+	output fin
+    );
+	wire Ra, Rb, Rc, Rac, Wa, Wb, Wc, Wac, Wt, S, R;//Cables de interconexión entre UC y UD
+
+	//Declare instancias de la UD y UC. Use conexión nombrada
+
+	UnidadControl UC(.clk(clk), .reset(reset), .xs(xs), .Ra(Ra), .Rb(Rb), .Rc(Rc), .Rac(Rac), .Wa(Wa), .Wb(Wb), .Wc(Wc), .Wac(Wac), .Wt(Wt), .S(S), .R(R), .fin(fin));
+	UnidadDatos UD(.clk(clk), .Ra(Ra), .Rb(Rb), .Rc(Rc), .Rac(Rac), .Wa(Wa), .Wb(Wb), .Wc(Wc), .Wac(Wac), .Wt(Wt), .S(S), .R(R)); //Complete la lista de puertos
 
 endmodule

@@ -1,0 +1,30 @@
+[*]
+[*] GTKWave Analyzer v3.3.71 (w)1999-2016 BSI
+[*] Wed Mar 27 19:37:50 2019
+[*]
+[dumpfile] "C:\Users\Rebeca\Documents\Ingenieria Informatica\EdC\SistemaDigital\SD\SistemaDigitalAlumno\test.vcd"
+[dumpfile_mtime] "Wed Mar 27 19:35:01 2019"
+[dumpfile_size] 2723
+[savefile] "C:\Users\Rebeca\Documents\Ingenieria Informatica\EdC\SistemaDigital\SD\SistemaDigitalAlumno\ginals.gtkw"
+[timestart] 0
+[size] 1536 801
+[pos] -165 -165
+*-14.939905 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] test.
+[treeopen] test.uut.
+[treeopen] test.uut.UD.
+[sst_width] 197
+[signals_width] 78
+[sst_expanded] 1
+[sst_vpaned_height] 224
+@29
+test.uut.xs
+test.uut.fin
+test.uut.reset
+test.uut.clk
+@23
+test.uut.UD.A.q[7:0]
+test.uut.UD.B.q[7:0]
+test.uut.UD.C.q[7:0]
+[pattern_trace] 1
+[pattern_trace] 0

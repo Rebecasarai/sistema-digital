@@ -24,10 +24,10 @@ module test(
 	reg reset,xs,clk;
 	wire fin;
 	
-	SD uut (.reset(reset),.clk(clk),.xs(xs));
+	SD uut (.reset(reset),.clk(clk),.xs(xs), .fin(fin));
 	
 	always
-		#50 clk = ~clk;
+		#5 clk = ~clk;
 		
 	initial
 		begin
@@ -43,12 +43,11 @@ module test(
 			
 			xs=1;
 			@(posedge clk);//esperamos un flanco de reloj
-			xs=0;
-			
-			repeat(3) @(posedge clk)
+			xs = 0;
+			repeat(80) @(posedge clk)
 			
 
-			$finish;
+			#120 $finish;
 		end
 
 endmodule

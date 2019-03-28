@@ -22,7 +22,11 @@ module SD(
 	input clk, reset,xs,
 	output fin
     );
-	wire ....;//Cables de interconexión entre UC y UD
+	wire Ra, Rb, Rc, Rac, Wa, Wb, Wc, Wac, Wt, S, R;//Cables de interconexión entre UC y UD
 
 	//Declare instancias de la UD y UC. Use conexión nombrada
+
+	UnidadControl UC(.clk(clk), .reset(reset), .xs(xs));
+	UnidadDatos UD(.clk(clk), .Ra(Ra), .Rb(Rb), .Rc(Rc), .Rac(Rac), .Wa(Wa), .Wb(Wb), .Wc(Wc), .Wac(Wac), .Wt(Wt), .S(S), .R(R)); //Complete la lista de puertos
+
 endmodule
